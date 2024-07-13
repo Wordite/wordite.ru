@@ -1,0 +1,42 @@
+@mixin textSliced($font-size: 20px, $duration: .35s, $delay: 0, $move-hover: 0) {
+  --font-shadow: #{$font-size};
+
+  display: block;
+  font-size: $font-size;
+  transform: translateY(var(--y)) translateZ(0);
+  transition: .35s;
+
+  div {
+    display: flex;
+    overflow: hidden;
+    text-shadow: 0 var(--font-shadow) 0 white;
+    span {
+      display: block;
+      backface-visibility: hidden;
+      font-style: normal;
+      transition: transform $duration ease;
+      transform: translateY(var(--m)) translateZ(0);
+      $i: 1;
+      @while $i < 12 {
+        &:nth-child(#{$i}) {
+          transition-delay: $delay + calc($i / 20) + s;
+        }
+        $i: $i + 1;
+      }
+    }
+  }
+  &:hover {
+    --y: #{$move-hover};
+    span {
+      --m: calc(#{$font-size} * -1);
+    }
+  }
+  &.reverse {
+    --font-shadow: calc(#{$font-size} * -1);
+    &:hover {
+      span {
+        --m: calc(#{$font-size});
+      }
+    }
+  }
+}

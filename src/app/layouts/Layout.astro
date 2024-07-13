@@ -1,0 +1,31 @@
+---
+import ClientStateSync from '../store/ClientStateSync'
+import Init from '../Init.astro'
+
+import { $locale } from '../store/locale'
+const { locale } = Astro.params
+$locale.set(locale)
+
+import '../style/globals.scss'
+import Loader from '../../widgets/loader/Loader'
+import LoaderContent from '../../widgets/loader/LoaderContent'
+---
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Wordite</title>
+	</head>
+	<body>
+		<Loader client:load>
+			<LoaderContent client:only />
+		</Loader>
+		<ClientStateSync locale={locale} client:load />
+		<slot />
+		<Init />
+	</body>
+</html>

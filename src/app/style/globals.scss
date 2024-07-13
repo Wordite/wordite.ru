@@ -1,0 +1,263 @@
+@import 'reset';
+@import 'vars';
+@import '../../../node_modules/locomotive-scroll/dist/locomotive-scroll';
+
+
+// fonts
+@font-face {
+  font-family: "LT Superior";
+  src: url("/fonts/LTSuperior-Bold.woff2") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LT Superior";
+  src: url("/fonts/LTSuperior-Medium.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LT Superior";
+  src: url("/fonts/LTSuperior-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LT Superior";
+  src: url("/fonts/LTSuperior-Semibold.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: "Neutral Face";
+  src: url("/fonts/NeutralFace.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neutral Face";
+  src: url("/fonts/NeutralFace-Bold.woff2") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+// scrollbar
+
+::-webkit-scrollbar {
+  width: .25rem;
+  // display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(34 31 31);
+  transition: 0.3s;
+
+  border-radius: .4rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(47 44 44);
+  transition: 0.3s;
+
+  border-radius: .4rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+
+
+:root,
+body,
+html {
+  overflow-x: hidden;
+
+  font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
+  font-family: 'LT Superior';
+
+  background: #111111;
+  color: white;
+}
+
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.wordite_container {
+  width: 76.5rem;
+  margin: auto;
+
+  z-index: 10;
+}
+
+.scrollable_container {
+  height: 100vh;
+  overflow: scroll;
+
+  position: absolute;
+  width: 100%;
+
+  top: 100%;
+  left: 0;
+
+  overflow-x: hidden;
+  display: none;
+}
+
+.scrollable_content {
+  // height: 200rem;
+
+  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  // opacity: .99;
+}
+
+.section {
+  will-change: transform, display;
+}
+
+.section_content {
+  will-change: display;
+}
+
+.coffee {
+  position: absolute;
+
+  width: 36.5rem;
+  height: 45.65rem;
+
+  transform: rotate(-75deg);
+  z-index: 500;
+}
+
+* {
+  backface-visibility: hidden;
+}
+
+
+
+.text {
+  position: relative;
+  display: inline-block;
+
+  color: transparent;
+  overflow: hidden;
+  text-shadow: 0 1.2em white;
+
+  &.active {
+    text-shadow: 0 0 white;
+    transition: .75s ease-in-out;
+  }
+}
+
+
+
+.text_white_80 {
+  position: relative;
+  display: inline-block;
+
+  color: transparent;
+  overflow: hidden;
+  text-shadow: 0 5rem rgba(255,255,255,0.8);
+
+  &.active {
+    text-shadow: 0 0 rgba(255,255,255,0.8);
+    transition: .75s ease-in-out;
+  }
+}
+
+
+.text_dark {
+  position: relative;
+  display: inline-block;
+
+  color: transparent;
+  overflow: hidden;
+  text-shadow: 0 6.5rem #1C1C1C;
+
+  will-change: text-shadow;
+
+  &.active {
+    text-shadow: 0 0 #1C1C1C;
+    transition: .75s ease-in-out;
+  }
+}
+
+
+.text_hover_white {
+  overflow: hidden;
+  color: transparent;
+
+  & span {
+    text-shadow: #ffffff 0 -1.2em,
+                 #ffffff 0 0;
+    transition: .35s;
+  }
+
+  &:hover span {
+    display: block;
+
+    text-shadow: #ffffff 0 0,
+                 #ffffff 0 1.2em;
+    transition: .35s;
+  }
+
+  // &.big {
+  //   & span {
+  //     text-shadow: #ffffff 0 -2.5em,
+  //                  #ffffff 0 0;
+  //     transition: .7s;
+  //   }
+
+  //   &:hover span {
+  //     display: block;
+
+  //     text-shadow: #ffffff 0 0,
+  //                  #ffffff 0 2.5em;
+  //     transition: .7s;
+  //   }
+  // }
+}
+
+
+// .menu_section {
+//   &.active {
+//     // flex-grow: 2;
+//     // transition: .6s ease-in-out;
+
+//     position: relative;
+//     width: auto !important;
+//     flex-grow: 1;
+
+//     left: 0 !important;
+//     transition: flex-grow .45s ease-in-out;
+
+//     &:hover {
+//       flex-grow: 2;
+//       transition: flex-grow .45s ease-in-out;
+//     }
+//   }
+// }
+

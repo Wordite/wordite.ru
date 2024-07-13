@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, useTranslations } from '../../app/i18n/utils'
+import Layout from '../../app/layouts/Layout.astro';
+
+import { getStaticPaths } from '../../app/i18n/getStaticPaths'
+export { getStaticPaths }
+
+import FirstScreen from '../../widgets/home/FirstScreen/FirstScreen'
+import Hud from '../../widgets/hud/Hud'
+import Portfolio from '../../widgets/home/Portfolio/Portfolio';
+import Services from '../../widgets/home/Services/Services';
+import Skills from '../../widgets/home/Skills/Skills';
+import Photos from '../../widgets/home/Photos/Photos';
+import Footer from '../../widgets/footer/Footer';
+import Menu from '../../widgets/menu/Menu';
+
+const { locale } = Astro.params
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Layout>
+  <Hud client:load />
+  <Menu client:load />
+
+  <div class="wordite_container section">
+    <FirstScreen client:load />
+    <Portfolio client:load />
+  </div>
+
+  <div class="scrollable_container section">
+    <div class="wordite_container scrollable_content">
+      <Services client:idle />
+      <Skills client:idle />
+      <Photos client:idle />
+      <Footer client:idle />
+    </div>
+  </div>
+
+</Layout>
+
+

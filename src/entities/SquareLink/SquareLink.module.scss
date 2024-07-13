@@ -1,0 +1,89 @@
+
+.link {
+    width: 6.75rem;
+    height: 3.85rem;
+
+    border: .05rem solid rgba($color: #FFFFFF, $alpha: 0.8);
+    border-radius: .65rem;
+
+    padding: 0;
+    color: rgba($color: #FFFFFF, $alpha: 0.8);
+
+    position: relative;
+    opacity: 0;
+}
+
+
+
+
+
+.number {
+    font-family: var(--neutral);
+    font-weight: bold;
+    font-size: 1rem;
+
+    position: absolute;
+    left: .15rem;
+    top: .5rem;
+
+    mix-blend-mode: difference;
+    padding-left: .5rem;
+}
+
+
+.to {
+    font-size: .8rem;
+    font-weight: 600;
+
+    position: absolute;
+    left: .15rem;
+    bottom: .4rem;
+
+    mix-blend-mode: difference;
+    padding-left: .5rem;
+    padding-top: .25rem;
+}
+
+
+.icon {
+    position: absolute;
+
+    top: .75rem;
+    right: .75rem;
+
+    & path {
+        fill: rgba($color: #FFFFFF, $alpha: 0.8);
+    }
+}
+
+.vk {
+    width: 1.5rem;
+    height: .7rem;
+}
+
+.telegram {
+    width: .9rem;
+    height: .75rem;
+}
+
+.github {
+    width: 1.05rem;
+    height: 1rem;
+
+    top: .5rem;
+}
+
+.gmail {
+    width: .95rem;
+    height: .7rem;
+}
+
+.arrow {
+    width: .7rem;
+    height: .7rem;
+}
+
+
+
+
+

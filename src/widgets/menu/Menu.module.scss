@@ -1,0 +1,33 @@
+.menu {
+  position: fixed;
+  display: flex;
+
+  width: 100vw;
+  height: 100vw;
+
+  z-index: 5000;
+  transform: translate3d(0, 100vh, 0);
+
+  &.open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  @for $i from 1 through 6 {
+    & fragment:nth-child(#{$i}) {
+      left: calc((#{$i} - 1) * (100vw / 6));
+    }
+  }
+}
+
+.title {
+  z-index: 10000;
+  position: absolute;
+
+  top: 2rem;
+  left: 3rem;
+
+  font-size: 1.1rem;
+  font-family: var(--neutral);
+
+  opacity: 0;
+}

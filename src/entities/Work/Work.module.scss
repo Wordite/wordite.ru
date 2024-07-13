@@ -1,0 +1,134 @@
+
+
+.work {
+    opacity: 0;
+
+    box-shadow: 0rem .2rem .2rem 0rem rgba(0,0,0,0.25);
+    transition: .4s;
+
+    border-radius: .55rem;
+    position: relative;
+
+    width: 21.35rem;
+    height: 11.85rem;
+
+    overflow: hidden;
+
+    &::before {
+        content: '';
+
+        width: 150%;
+        height: 150%;
+
+        position: absolute;
+        top: -100%;
+        left: -100%;
+
+        background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 30%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0) 70%);
+    }
+
+    &:hover {
+        // transform: scale3d(1.05, 1.05, 1.05);
+
+        &::before {
+            transform: translate3d(200%, 200%, 0);
+            transition: 1.2s;
+        }
+
+        & .popup {
+            // transform: translate3d(0, -100%, 0);
+            height: 100%;
+
+            transition: .4s;
+            transition-delay: .4s;
+
+            & .popupTitle {
+                opacity: 1;
+                transform: none;
+
+                transition: .4s;
+                transition-delay: .5s;
+            }
+
+            & .popupSubtitle {
+                opacity: 1;
+                transform: none;
+
+                transition: .4s;
+                transition-delay: .7s;
+            }
+
+            & .arrow {
+                opacity: 1;
+                transform: none;
+
+                transition: .4s;
+                transition-delay: .75s;
+            }
+        }
+    }
+}
+
+
+.preview {
+    width: 100%;
+    height: 100%;
+}
+
+
+.popup {
+    position: absolute;
+    transition: .4s;
+
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+
+    background: rgba(0,0,0,1);
+
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.popupTitle {
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: var(--neutral);
+
+    transition: .2s;
+    opacity: 0;
+    transform: translate3d(-1.5rem, 0, 0);
+}
+
+.popupSubtitle {
+    font-size: .8rem;
+    margin: auto 0 1.5rem 1.5rem;
+
+    color: rgba(255, 255, 255, 0.8);
+    transition: .2s;
+
+    opacity: 0;
+    transform: translate3d(-1.5rem, 0, 0);
+}
+
+
+.arrow {
+    position: absolute;
+
+    width: 1.55rem;
+    height: 1.55rem;
+
+    bottom: 1.5rem;
+    right: 1.5rem;
+
+    transition: .2s;
+    opacity: 0;
+    transform: translate3d(1.5rem, 0, 0);
+}

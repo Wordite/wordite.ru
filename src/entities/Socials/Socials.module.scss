@@ -1,0 +1,115 @@
+
+.socials {
+    position: fixed;
+
+    left: 2rem;
+    bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2.25rem;
+    z-index: 1000;
+
+    width: 6rem;
+
+    mix-blend-mode: difference;
+    overflow: hidden;
+
+    transition-delay: .35s;
+
+    & > div {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    &.down {
+        & .github {
+            transform: translate3d(-120%, 0, 0);
+            transition: .35s;
+        }
+
+        & .vk {
+            transform: translate3d(-120%, 0, 0);
+            transition: .35s;
+            transition-delay: .08s;
+        }
+
+        & .gmail {
+            transform: translate3d(-120%, 0, 0);
+            transition: .35s;
+            transition-delay: .16s;
+        }
+
+        & .telegram {
+            transform: translate3d(-120%, 0, 0);
+            transition: .35s;
+            transition-delay: .24s;
+        }
+
+        transform: translateY(.9rem);
+        transition-delay: .45s;
+
+
+        & .text {
+            transform: none;
+            transition: .35s;
+            transition-delay: .7s;
+        }
+    }
+}
+
+.text {
+    font-size: .7rem;
+    font-weight: bold;
+    font-family: var(--neutral);
+
+    width: 6rem;
+
+    position: absolute;
+    bottom: 0;
+
+    transform: translate3d(0, 110%, 0);
+    transition: .35s;
+}
+
+
+
+.icon {
+    & path {
+        fill: white;
+    }
+}
+
+
+.github {
+    width: 1.2rem;
+    height: 1.15rem;
+
+    transition: .35s ease-in;
+    transition-delay: .49s;
+}
+
+.vk {
+    width: 1.2rem;
+    height: .7rem;
+
+    transition: .35s ease-in;
+    transition-delay: .41s;
+}
+
+.gmail {
+    width: .95rem;
+    height: .7rem;
+
+    transition: .35s ease-in;
+    transition-delay: .33s;
+}
+
+.telegram {
+    width: 1rem;
+    height: .85rem;
+
+    transition: .35s ease-in;
+    transition-delay: .25s;
+}
+

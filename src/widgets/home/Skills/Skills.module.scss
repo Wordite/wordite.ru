@@ -1,0 +1,68 @@
+
+
+.skills {
+    margin-top: 10rem;
+    position: relative;
+
+    width: 100vw;
+
+    padding: 0 calc((100vw - 76.5rem) / 2);
+    transform: translate3d(calc((100vw - 76.5rem) / -2), 0, 0);
+}
+
+.title {
+    font-size: 6rem;
+    font-weight: bold;
+    font-family: var(--neutral);
+
+    color: transparent;
+    text-align: center;
+
+    margin: auto;
+    display: block;
+}
+
+
+.coffee {
+    position: absolute;
+
+    top: 15rem;
+    right: 0;
+
+    transform: rotate(90deg);
+    // z-index: 200;
+}
+
+
+.canvas {
+    position: relative;
+    left: calc((100vw - 76.5rem) / -2);
+
+    margin-top: 7.5rem;
+}
+
+
+.skills-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .skill {
+    position: absolute;
+    transition: transform 0.3s linear;
+  }
+
+
+@keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+
+

@@ -1,0 +1,91 @@
+
+.title {
+    font-family: var(--neutral);
+    font-size: 3.8rem;
+    font-weight: bold;
+
+    margin-top: 5rem;
+}
+
+.portfolio {
+    width: calc(100% + 10.75rem);
+    height: 100vh;
+
+    overflow: hidden;
+    user-select: none;
+
+    position: relative;
+    padding-right: 10rem;
+    padding-left: .75rem;
+}
+
+.works {
+    margin-top: 2.5rem;
+    width: 45rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.45rem;
+}
+
+.slogan {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 134%;
+
+    width: 20.8rem;
+    margin-top: 4rem;
+}
+
+
+.background {
+    width: 19.5rem;
+    height: 0;
+
+    position: absolute;
+    background: #181515;
+
+    top: 50%;
+    right: 11.75rem;
+
+    transform: rotate3d(0, 0, 1, 15deg) translate(0, -50%);
+    z-index: -1000;
+
+    box-shadow: 0rem 0rem 1.03rem .4rem rgba(0,0,0,0.0);
+
+    &.active {
+        height: 130%;
+        box-shadow: 0rem 0rem 1.03rem .4rem rgba(0,0,0,0.25);
+
+        transform: rotate3d(0, 0, 1, 15deg) translate(-8rem, -50%);
+        transition: 1s;
+
+        transition-delay: .6s, 0s, 0s;
+        transition-property: box-shadow, height, transform;
+    }
+}
+
+.model {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 25rem;
+    height: 25rem;
+}
+
+.coffee {
+    top: 2.5rem;
+    right: -40rem;
+
+    transition: .5s;
+    will-change: transform;
+
+    &.active {
+        transform: translate3d(-34.5rem, 0, 0) rotate(-75deg);
+        transition: 1s ease-in-out;
+    }
+}
+
+
+

@@ -1,0 +1,121 @@
+.languageLinks, .name, .accent, .menu {
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
+
+.name {
+    font-family: var(--neutral);
+    font-weight: bold;
+
+    font-size: 1.1rem;
+
+    position: fixed;
+    left: 2rem;
+    top: 2rem;
+
+    overflow: hidden;
+
+    & a {
+        display: block;
+        transform: translateY(-100%);
+    }
+}
+
+.accent {
+    position: fixed;
+
+    bottom: 2rem;
+    right: 2rem;
+
+    width: 6.5rem;
+    height: 3rem;
+
+    text-align: right;
+
+    font-size: .7rem;
+    font-weight: bold;
+
+    line-height: 134%;
+    overflow: hidden;
+
+    // transition: .3s;
+    transition-delay: .3s;
+
+    &.down {
+        transition-delay: .3s;
+        transform: translateY(.85rem);
+        // transition: .3s;
+    }
+}
+
+.works {
+    position: absolute;
+    transition: .4s;
+
+    right: 0;
+    bottom: 0;
+
+    transform: translate3d(-110%, 0, 0);
+    transition-delay: 0;
+
+    &.active {
+        // right: 0;
+        transform: none;
+
+        transition: .4s;
+        transition-delay: .3s;
+    }
+}
+
+.slogan {
+    position: absolute;
+    transition: .4s;
+
+    bottom: 0;
+    left: 0;
+    transform: none;
+
+    transition-delay: .25s;
+    transform: translate3d(100%, 0, 0);
+
+    &.hidden {
+        // bottom: -100%;
+        transform: translate3d(0, 100%, 0) !important;
+
+        transition: .4s;
+        transition-delay: 0s;
+    }
+}
+
+
+.menu {
+    position: fixed;
+
+    right: 2rem;
+    top: 2rem;
+}
+
+.languageLinks {
+    margin-top: 2.6rem;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: .75rem;
+    overflow: hidden;
+
+    & a {
+        display: block;
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.languageLink {
+    margin-left: auto;
+
+    font-size: .7rem;
+    font-weight: bold;
+    font-family: var(--neutral);
+}
+

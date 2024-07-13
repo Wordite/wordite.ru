@@ -1,0 +1,59 @@
+
+.services {
+    position: relative;
+
+
+    &.active {
+        & .list {
+            &::before {
+                opacity: 1;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+.list {
+    margin-top: 1.5rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+
+        width: 100vw;
+        height: .05rem;
+
+        opacity: 0;
+        background: #252222;
+
+        left: calc((100vw - 76.5rem) / 2 * -1);
+        top: 0;
+    }
+}
+
+
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: var(--neutral);
+
+    color: transparent;
+    letter-spacing: 15%;
+
+    padding-top: 9.1rem;
+}
+
+
+.coffee {
+    position: absolute;
+
+    width: 7.45rem;
+    height: 6.65rem;
+
+    top: -6.65rem;
+    right: 4.25rem;
+}
+
+
