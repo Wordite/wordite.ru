@@ -31,9 +31,16 @@
     z-index: 0;
 
     // opacity: .99;
+
+    @media only screen and (max-width: 768px) {
+        padding: .5rem 1.65rem;
+        font-size: .65rem;
+    }
 }
 
 .content {
     mix-blend-mode: difference;
     backface-visibility: visible;
+
+    text-align: center;
 }

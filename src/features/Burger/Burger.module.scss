@@ -5,7 +5,7 @@
   position: fixed;
   overflow: hidden;
 
-  z-index: 10000;
+  z-index: 20000;
   top: 2rem;
   right: 2rem;
 
@@ -16,8 +16,15 @@
   & figure {
     transform: translate3d(110%, 0, 0);
   }
-}
 
+  @media only screen and (max-width: 768px) {
+    width: 1.85rem;
+    height: 1rem;
+
+    top: 1.35rem;
+    right: .75rem;
+  }
+}
 .burger input {
   width: 100%;
   height: 1.15rem;
@@ -26,16 +33,24 @@
   z-index: 1;
 
   cursor: pointer;
+
+  @media only screen and (max-width: 768px) {
+    height: 0.85rem;
+  }
 }
 
 @mixin pill() {
   content: '';
   position: absolute;
   width: 100%;
-  height: .05rem;
+  height: 0.05rem;
   background: white;
   transition: all 0.5s cubic-bezier(0.1, 0.9, 0, 1.2);
   right: 0;
+
+  @media only screen and (max-width: 768px) {
+    height: 1px;
+  }
 }
 
 .burger {
@@ -48,8 +63,11 @@
   & span:nth-child(2)::before {
     @include pill();
 
-    top: .5rem;
-    transform: translate3d(0, -50%, 0);
+    top: 0.5rem;
+
+    @media only screen and (max-width: 768px) {
+      top: 0.35rem;
+    }
   }
 
   & span:nth-child(2)::before {
@@ -65,21 +83,32 @@
 
     width: 1.55rem;
     top: 1rem;
+
+    @media only screen and (max-width: 768px) {
+      width: 1.25rem;
+      top: 0.7rem;
+    }
   }
 }
-
-
 
 .burger input:checked ~ span {
   &:nth-child(2)::after {
     transform: rotate(45deg);
-    top: .5rem;
+    top: 0.5rem;
+
+    @media only screen and (max-width: 768px) {
+      top: 0.44rem;
+    }
   }
 
   &:nth-child(2)::before {
     transform: rotate(135deg);
     opacity: 1;
-    top: .5rem;
+    top: 0.5rem;
+
+    @media only screen and (max-width: 768px) {
+      top: 0.44rem;
+    }
   }
 
   &:nth-child(3)::after {
@@ -87,6 +116,6 @@
   }
 
   &:nth-child(4)::after {
-    transform: translate3d(-140%, 0, 0);
+    transform: translate3d(-160%, 0, 0);
   }
 }

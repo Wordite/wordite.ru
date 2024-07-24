@@ -1,0 +1,38 @@
+---
+import { getLangFromUrl, useTranslations } from '../../../app/i18n/utils'
+import Layout from '../../../app/layouts/Layout.astro';
+
+import { getStaticPaths } from '../../../app/i18n/getStaticPaths'
+export { getStaticPaths }
+
+import Hud from '../../../widgets/hud/Hud'
+import Menu from '../../../widgets/menu/Menu'
+import MobileMenu from '../../../widgets/mobileMenu/MobileMenu'
+import InitScripts from '../../../app/InitScripts.astro'
+import Footer from '../../../widgets/footer/PageFooter'
+import CrownClothes from '../../../widgets/cases/CrownClothes'
+
+import '../../../app/style/case.scss'
+
+const { locale } = Astro.params
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Layout>
+  <Hud client:load />
+  <Menu client:load />
+  <MobileMenu client:load />
+
+  <div class="wordite_page_container">
+    <div class="wordite_page_content">
+      <CrownClothes client:load />
+      <Footer client:load />
+    </div>
+  </div>
+
+  <InitScripts />
+</Layout>
+
+

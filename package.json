@@ -23,11 +23,15 @@
     "gsap": "^3.12.5",
     "locomotive-scroll": "^5.0.0-beta.11",
     "nanostores": "^0.10.0",
+    "prevent-overscrolling": "^1.1.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-touch-events": "^3.0.0",
     "ssr-window": "^4.0.2",
+    "swiper": "^11.1.5",
     "tailwindcss": "^3.4.3",
-    "three": "^0.164.1"
+    "three": "^0.164.1",
+    "touchsweep": "^2.2.0"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

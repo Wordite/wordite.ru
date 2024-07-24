@@ -9,12 +9,15 @@ gsap.config({
   force3D: true,
 })
 
+// let isMobile = window.innerWidth <= 768
+// window.addEventListener('resize', () => isMobile = window.innerWidth <= 768)
+
 function useAnimations(isUseState = false) {
   let cleaners = {}
   let setCleaners = null
 
   if (isUseState) {
-    [cleaners, setCleaners] = useState({})
+    ;[cleaners, setCleaners] = useState({})
   }
 
   return {
@@ -127,15 +130,15 @@ function useAnimations(isUseState = false) {
           '.menu_section',
           {
             width: 0,
-            opacity: 0
-        },
+            opacity: 0,
+          },
           {
             width: Math.ceil(100 / 6) + '%',
             opacity: 1,
             delay,
             duration: 0.3,
             ease: 'power1.inOut',
-            stagger: 0.1
+            stagger: 0.1,
           }
         )
 
@@ -149,23 +152,40 @@ function useAnimations(isUseState = false) {
             duration: 0.8,
             ease: 'power1.inOut',
             stagger: 0.1,
-            delay: 0.3
+            delay: 0.3,
           }
         )
 
+        // gsap.fromTo(
+        //   selector + ' .menu_section_title',
+        //   {
+        //     opacity: 0,
+        //     y: -60,
+        //   },
+        //   {
+        //     y: 0,
+        //     opacity: 1,
+        //     duration: 0.5,
+        //     ease: 'power1.inOut',
+        //     delay: 0.3,
+        //     stagger: 0.1,
+        //   }
+        // )
+
+        Array.from(document.body.querySelectorAll('.menu_section_title')).map((el, i) => setTimeout(() => el.classList.add('active'), i * 100 + 300))
+
         gsap.fromTo(
-          selector + ' .menu_section_title',
+          '.menu_home',
           {
             opacity: 0,
-            y: -60
+            y: -60,
           },
           {
             y: 0,
             opacity: 1,
-            duration: 0.5,
+            duration: 0.65,
             ease: 'power1.inOut',
             delay: 0.3,
-            stagger: 0.1,
           }
         )
 
@@ -173,14 +193,14 @@ function useAnimations(isUseState = false) {
           '.menu_head_title',
           {
             opacity: 0,
-            y: -60
+            y: -60,
           },
           {
             y: 0,
             opacity: 1,
-            duration: .3,
+            duration: 0.3,
             ease: 'power1.inOut',
-            delay: .35,
+            delay: 0.35,
           }
         )
 
@@ -194,12 +214,12 @@ function useAnimations(isUseState = false) {
             duration: 0.35,
             ease: 'power1.out',
             stagger: 0.08,
-            delay: .9,
+            delay: 0.9,
             y: 0,
-            opacity: 1
+            opacity: 1,
           }
         )
-    }
+      }
 
       animate()
     },
@@ -218,22 +238,39 @@ function useAnimations(isUseState = false) {
             stagger: -0.1,
             duration: 0.2,
             ease: 'power1.inOut',
-            onComplete
+            onComplete,
           }
         )
 
+        // gsap.fromTo(
+        //   '.menu_section_title',
+        //   {
+        //     opacity: 1,
+        //     y: 0,
+        //   },
+        //   {
+        //     y: -60,
+        //     opacity: 0,
+        //     duration: 0,
+        //     delay: 1.25,
+        //     stagger: 0,
+        //   }
+        // )
+
+        // document.body.querySelector('.menu_section_title').classList.remove('active')
+        Array.from(document.body.querySelectorAll('.menu_section_title')).map((el, i) => setTimeout(() => el.classList.remove('active'), i * 50))
+
         gsap.fromTo(
-          '.menu_section_title',
+          '.menu_home',
           {
             opacity: 1,
-            y: 0
+            y: 0,
           },
           {
             y: -60,
             opacity: 0,
-            duration: 0,
-            delay: 1.25,
-            stagger: 0,
+            duration: 0.2,
+            ease: 'power1.inOut',
           }
         )
 
@@ -241,17 +278,17 @@ function useAnimations(isUseState = false) {
           '.menu_head_title',
           {
             opacity: 1,
-            y: 0
+            y: 0,
           },
           {
             y: -60,
             opacity: 0,
-            duration: .2,
+            duration: 0.2,
             ease: 'power1.inOut',
-            delay: .1,
+            delay: 0.1,
           }
         )
-    }
+      }
 
       animate()
     },
@@ -261,16 +298,16 @@ function useAnimations(isUseState = false) {
         '.loader_title span',
         {
           opacity: 0,
-          y: -25 / 20 + 'rem'
+          y: -25 / 20 + 'rem',
         },
         {
-          delay: .5,
+          delay: 0.5,
           opacity: 1,
           y: 0,
           stagger: {
-            amount: .6
+            amount: 0.6,
           },
-          onComplete
+          onComplete,
         }
       )
 
@@ -298,7 +335,7 @@ function useAnimations(isUseState = false) {
         },
         {
           opacity: 1,
-          duration: 3
+          duration: 3,
         }
       )
     },
@@ -307,13 +344,13 @@ function useAnimations(isUseState = false) {
       gsap.fromTo(
         '.loader_background',
         {
-          width: window.innerWidth / 6
+          width: window.innerWidth / 6,
         },
         {
           width: 0,
           stagger: -0.15,
           duration: 0.3,
-          onComplete
+          onComplete,
         }
       )
 
@@ -321,17 +358,188 @@ function useAnimations(isUseState = false) {
         '.loader_title span',
         {
           opacity: 1,
-          y: 0
+          y: 0,
         },
         {
-          delay: .1,
+          delay: 0.1,
           opacity: 0,
           y: -20,
           stagger: {
-            amount: -.05
+            amount: -0.05,
           },
         }
       )
+    },
+
+    mobileMenuSectionOpen(selector = '.mobile_menu', delay = 0) {
+      const animate = () => {
+        gsap.fromTo(
+          '.mobile_menu_background',
+          {
+            height: 0,
+            opacity: 0,
+          },
+          {
+            height: Math.ceil(100 / 6) + '%',
+            opacity: 1,
+            delay,
+            duration: 0.3,
+            ease: 'power1.inOut',
+            stagger: 0.1,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_links li',
+          {
+            opacity: 0,
+            x: -30,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0.3,
+            stagger: 0.1,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_title',
+          {
+            opacity: 0,
+            y: -30,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0.3,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_languageLinks a',
+          {
+            opacity: 0,
+            x: 30,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0.3,
+            stagger: 0.1,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_social',
+          {
+            opacity: 0,
+            y: 30,
+          },
+          {
+            y: '-50%',
+            opacity: 1,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0.65,
+            stagger: 0.1,
+          }
+        )
+      }
+
+      animate()
+    },
+
+    mobileMenuSectionClose(onComplete, delay = 0) {
+      const animate = () => {
+        gsap.fromTo(
+          '.mobile_menu_background',
+          {
+            height: Math.ceil(100 / 6) + '%',
+            opacity: 1,
+          },
+          {
+            height: 0,
+            opacity: 0,
+            delay: .5,
+            duration: 0.3,
+            ease: 'power1.inOut',
+            stagger: -0.1,
+            onComplete,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_links li',
+          {
+            opacity: 1,
+            x: 0,
+          },
+          {
+            x: -30,
+            opacity: 0,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0,
+            stagger: -0.1,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_title',
+          {
+            opacity: 1,
+            y: 0,
+          },
+          {
+            y: -30,
+            opacity: 0,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_languageLinks a',
+          {
+            opacity: 1,
+            x: 0,
+          },
+          {
+            x: 30,
+            opacity: 0,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0,
+            stagger: -0.1,
+          }
+        )
+
+        gsap.fromTo(
+          '.mobile_menu_social',
+          {
+            opacity: 1,
+            y: 0,
+          },
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.35,
+            ease: 'power1.inOut',
+            delay: 0,
+            stagger: -0.1,
+          }
+        )
+      }
+
+      animate()
     },
 
     reset() {

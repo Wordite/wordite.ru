@@ -6,7 +6,7 @@ import svgr from 'vite-plugin-svgr'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(), turbolinks()],
+  integrations: [react(), tailwind()],
 
   i18n: {
     defaultLocale: 'en',

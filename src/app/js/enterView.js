@@ -3,7 +3,7 @@ let scrollOffset = 0
 let container = null
 
 if (typeof window !== 'undefined') {
-  container = document.body.querySelector('.scrollable_container')
+  container = document.body.querySelector('#home') ? document.body.querySelector('.scrollable_container') : document.body.querySelector('.wordite_page_container')
 
   setInterval(() => {
     scrollOffset = container.scrollTop

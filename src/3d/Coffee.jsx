@@ -72,41 +72,53 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { $section } from '../app/store/section'
+import { $isMobile } from '../app/store/isMobile'
+
+
+function getAdaptiveCoff() {
+  const body = document.body
+  const computedStyle = window.getComputedStyle(body)
+  const fontSize = computedStyle.fontSize
+
+  return parseInt(fontSize) / 20
+}
 
 
 let isNeedRender = false
 
 
 function graphic(container) {
-  let w = window.innerWidth / 1920 * 800
-  let h = (window.innerHeight + 168) / 1080 * 540
+  let w = 900 * getAdaptiveCoff()
+  let h = 168 * getAdaptiveCoff() + 640 * getAdaptiveCoff()
 
-  let screenW = window.innerWidth / 1920 * 1920
-  let screenH = (window.innerHeight + 168) / 1080 * 1080
+  let screenW = 1920 * getAdaptiveCoff()
+  let screenH = 168 * getAdaptiveCoff() + 1080 * getAdaptiveCoff() + 100
 
   const scene = new THREE.Scene()
   let camera = new THREE.PerspectiveCamera(70, screenW / screenH, 0.1, 1000)
 
   function resizeScene() {
-    w = window.innerWidth / 1920 * 800
-    h = (window.innerHeight + 168) / 1080 * 540
+    w = 900 * getAdaptiveCoff()
+    h = 168 * getAdaptiveCoff() + 640 * getAdaptiveCoff()
 
-    screenW = window.innerWidth / 1920 * 1920
-    screenH = (window.innerHeight + 168) / 1080 * 1080
+    screenW = 1920 * getAdaptiveCoff()
+    screenH = 168 * getAdaptiveCoff() + 1080 * getAdaptiveCoff() + 100
 
     camera = new THREE.PerspectiveCamera(70, screenW / screenH, 0.1, 1000)
-    camera.position.z = 3.3
+    camera.position.z = 4
     camera.position.x = 0.5
 
     renderer.setSize(w, h)
+    renderer.setPixelRatio(window.devicePixelRatio)
   }
 
   window.addEventListener('resize', resizeScene)
 
-  const renderer = new THREE.WebGLRenderer({ alpha: true })
+  const renderer = new THREE.WebGLRenderer({ alpha: true, powerPreference: 'high-performance' })
   renderer.toneMappingExposure = 2
   renderer.toneMapping = THREE.ACESFilmicToneMapping
   renderer.physicallyCorrectLights = true
+  renderer.setPixelRatio(window.devicePixelRatio)
 
   const light = new THREE.AmbientLight(0xffffff, 1) // soft white light
   scene.add(light)
@@ -138,7 +150,7 @@ function graphic(container) {
     group.position.sub(center)
   })
 
-  camera.position.z = 3.3
+  camera.position.z = 4
   camera.position.x = 0.5
 
   let isMouseDown = false
@@ -206,9 +218,10 @@ function graphic(container) {
 
 const Coffee = ({ className }) => {
   const section = useStore($section)
+  const isMobile = useStore($isMobile)
   const container = useRef(null)
 
-  isNeedRender = section === 2
+  isNeedRender = section === 2 && !isMobile
   useEffect(() => graphic(container.current), [])
 
   return <figure ref={container} className={'coffee ' + className}></figure>

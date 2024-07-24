@@ -11,8 +11,10 @@ import Portfolio from '../../widgets/home/Portfolio/Portfolio';
 import Services from '../../widgets/home/Services/Services';
 import Skills from '../../widgets/home/Skills/Skills';
 import Photos from '../../widgets/home/Photos/Photos';
-import Footer from '../../widgets/footer/Footer';
+import Footer from '../../widgets/footer/HomeFooter';
 import Menu from '../../widgets/menu/Menu';
+import MobileMenu from '../../widgets/mobileMenu/MobileMenu';
+import Init from '../../app/Init.astro'
 
 const { locale } = Astro.params
 
@@ -21,12 +23,14 @@ const t = useTranslations(lang)
 ---
 
 <Layout>
+  <Init />
   <Hud client:load />
-  <Menu client:load />
+  <Menu client:only />
+  <MobileMenu client:only />
 
   <div class="wordite_container section">
     <FirstScreen client:load />
-    <Portfolio client:load />
+    <Portfolio client:idle />
   </div>
 
   <div class="scrollable_container section">
@@ -37,7 +41,6 @@ const t = useTranslations(lang)
       <Footer client:idle />
     </div>
   </div>
-
 </Layout>
 
 

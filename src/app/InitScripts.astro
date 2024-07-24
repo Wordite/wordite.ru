@@ -1,0 +1,9 @@
+<script>
+    import { locomotiveScroll } from './js/locomotive'
+
+    const targets = document.body.querySelectorAll('.text_hover_white')
+    targets.forEach(target => {
+        const text = target.textContent
+        target.innerHTML = `<span>${text}</span>`
+    })
+</script>

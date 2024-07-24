@@ -95,23 +95,58 @@ html {
 
   background: #111111;
   color: white;
+
+  @media only screen and (max-width: 1024px) {
+    font-size: calc(1vw + 1vh);
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: calc(1.6vw + 1.6vh);
+  }
+
+  @media only screen and (max-width: 768px) and (min-width: 416px) {
+    font-size: calc(1.6vw + 1.6vh);
+  }
 }
 
-html {
+html[page="home"] {
   height: 100vh;
   overflow: hidden;
 }
-
 
 .wordite_container {
   width: 76.5rem;
   margin: auto;
 
   z-index: 10;
+
+  @media only screen and (max-width: 1024px) {
+    width: 90%;
+  }
 }
 
+.wordite_page_container {
+  width: 100vw;
+  height: 100dvh;
+
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.wordite_page_content {
+  width: 76.5rem;
+  margin: auto;
+
+  z-index: 10;
+
+  @media only screen and (max-width: 1024px) {
+    width: 90%;
+  }
+}
+
+
 .scrollable_container {
-  height: 100vh;
+  height: 100dvh;
   overflow: scroll;
 
   position: absolute;
@@ -261,3 +296,23 @@ html {
 //   }
 // }
 
+
+// .menu_section.animated {
+//   // &:hover .menu_section_title {
+//   //   transform: translate(-50%, calc(-50% - .75rem)) !important;
+//   //   transition: 0.4s ease-in-out;
+//   // }
+
+//   .menu_section_title {
+//     transform: translate(-50%, -50%) !important;
+//     text-align: center;
+//   }
+// }
+
+
+.menu_section_title.active {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+
+  transition: 0.3s ease-in-out;
+}

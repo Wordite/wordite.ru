@@ -34,6 +34,8 @@ const LinkMouseBlock = ({children, className, href}) => {
 
   const mouseLeave = () => {
     const el = circles.pop()
+    if (!el) return
+
     el.style.transform = `translate3d(-50%,-50%,0) scale(0)`
 
     setTimeout(() => el.remove(), 600)

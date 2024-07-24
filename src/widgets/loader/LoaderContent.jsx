@@ -21,12 +21,13 @@ const LoaderContent = () => {
 
     animations.loader(() => {
       if (earth === 'loaded') $loader.set('closing')
+      // $loader.set('closing')
       else $loader.set('ready')
     })
   }, [])
 
   useEffect(() => {
-    if (earth !== 'loaded') return
+    if (earth !== 'loaded' && document.body.querySelector('#home')) return
     if (loader === 'ready') $loader.set('closing')
   }, [earth, loader])
 

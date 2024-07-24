@@ -5,11 +5,21 @@ import { useStore } from '@nanostores/react'
 import { $section } from '../../../app/store/section'
 import React, { useEffect } from 'react'
 import { useAnimations } from '../../../app/hooks/useAnimations'
+import LinkMouseBlock from '../../../shared/MouseBackgrounds/LinkMouseBlock/LinkMouseBlock'
 
+import college from '../../../assets/case_cards/college.png'
+import puma from '../../../assets/case_cards/puma.png'
+import twopizza from '../../../assets/case_cards/twopizza.png'
+import crownclother from '../../../assets/case_cards/crownclothes.png'
+
+import { $locale } from '../../../app/store/locale'
+import { useTranslations } from '../../../app/i18n/utils'
 
 const Portfolio = () => {
   const section = useStore($section)
   const animations = useAnimations(true)
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     if (section === 2) {
@@ -56,25 +66,28 @@ const Portfolio = () => {
   return (
     <section className={style.portfolio}>
       <div className='section_content hidden'>
-        <h2 className={style.title + ' text'}>PORTFOLIO</h2>
+        <h2 className={style.title + ' text'}>{t('portfolio.title')}</h2>
 
         <div className={style.works}>
-          <Work />
-          <Work />
-          <Work />
-          <Work />
+          <Work path={college.src} link='' />
+          <Work path={puma.src} link='' />
+          <Work path={crownclother.src} link='' />
+          <Work path={twopizza.src} link='' />
         </div>
 
         <div className={style.slogan}>
-          <p className='text_white_80'>
-            Logic can take you from point A to point B, and
-          </p>
-          <p className='text_white_80'>imagination can take you anywhere</p>
+          <p className='text_white_80'>{t('portfolio.slogan.part1')}</p>
+          <p className='text_white_80'>{t('portfolio.slogan.part2')}</p>
         </div>
 
         <div className={style.background}></div>
         <Coffee className={style.coffee} />
+
+        <LinkMouseBlock href='/' className={style.allWorks}>
+          {t('portfolio.viewAllWorks')}
+        </LinkMouseBlock>
       </div>
+      <p id='home' className='hidden'></p>
     </section>
   )
 }

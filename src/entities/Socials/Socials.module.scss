@@ -17,9 +17,10 @@
     overflow: hidden;
 
     transition-delay: .35s;
+    padding: .1rem;
 
     & > div {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-120%, 0, 0);
     }
 
     &.down {
@@ -56,6 +57,10 @@
             transition-delay: .7s;
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .text {
@@ -77,6 +82,14 @@
 .icon {
     & path {
         fill: white;
+        transition: .3s;
+    }
+
+    transition: .3s;
+
+    &:hover {
+        transform: scale3d(1.1, 1.1, 1);
+        transition: .3s;
     }
 }
 
@@ -95,6 +108,13 @@
 
     transition: .35s ease-in;
     transition-delay: .41s;
+
+    &:hover {
+        & path {
+            fill: #0077FF;
+            transition: .3s;
+        }
+    }
 }
 
 .gmail {
@@ -103,6 +123,13 @@
 
     transition: .35s ease-in;
     transition-delay: .33s;
+
+    &:hover {
+        & path {
+            fill: #FBBC04;
+            transition: .3s;
+        }
+    }
 }
 
 .telegram {
@@ -111,5 +138,49 @@
 
     transition: .35s ease-in;
     transition-delay: .25s;
+
+    &:hover {
+        & path {
+            fill: #24A1DE;
+            transition: .3s;
+        }
+    }
+}
+
+
+.iconContainer {
+    position: relative;
+    width: 1.2rem;
+
+    // overflow: hidden;
+
+    // &::after {
+    //     content: '';
+
+    //     position: absolute;
+    //     background: #fff;
+
+    //     width: 1%;
+    //     height: 1%;
+
+    //     top: 50%;
+    //     left: 50%;
+
+    //     transform: translate(-50%, -50%);
+    //     opacity: 0;
+
+    //     transform-origin: center;
+    //     transition: .4s;
+
+    //     z-index: -100;
+    //     border-radius: 50%;
+    // }
+
+    // &:hover::after {
+    //     transform: translate(-50%, -50%) scale3d(100, 100, 1);
+    //     opacity: 1;
+
+    //     transition: .4s;
+    // }
 }
 

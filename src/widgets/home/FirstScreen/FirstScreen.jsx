@@ -6,11 +6,15 @@ import { $earth } from '../../../app/store/earth'
 import { useAnimations } from '../../../app/hooks/useAnimations'
 import React, { useEffect } from 'react'
 import { $section } from '../../../app/store/section'
+import { $locale } from '../../../app/store/locale'
+import { useTranslations } from '../../../app/i18n/utils'
 
 const FirstScreen = () => {
   const earth = useStore($earth)
   const animations = useAnimations(true)
   const section = useStore($section)
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     if (earth !== 'ready') return
@@ -20,18 +24,17 @@ const FirstScreen = () => {
       selector: '.' + style.title + ' span',
       className: 'active',
       isForChildren: true,
-      stagger: 50
+      stagger: 50,
     })
 
     animations.block({
       selector: '.' + style.contact,
-      delay: .5,
+      delay: 0.5,
       startOffset: 40,
       direction: 'y',
       duration: 0.3,
-      ease: 'power1.out'
+      ease: 'power1.out',
     })
-
   }, [earth, section])
 
   return (
@@ -41,11 +44,15 @@ const FirstScreen = () => {
 
         <div className={style.text}>
           <h1 className={style.title}>
-              <span className='text'>WEB</span><span className='text'> DEVELOPER </span>
-              <span className='text'>SINCE</span><span className='text'> 2020</span>
+            <span className='text'>{t('first.screen.title.web')}</span>
+            <span className='text'>{t('first.screen.title.developer')}</span>
+            <span className='text'>{t('first.screen.title.since')}</span>
+            <span className='text'>{t('first.screen.title.year')}</span>
           </h1>
 
-          <LinkMouseBlock href='/' className={style.contact}>CONTACT ME</LinkMouseBlock>
+          <LinkMouseBlock href='/' className={style.contact}>
+            {t('first.screen.link.portfolio')}
+          </LinkMouseBlock>
         </div>
       </div>
     </section>

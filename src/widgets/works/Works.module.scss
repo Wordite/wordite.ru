@@ -1,0 +1,32 @@
+
+
+.works {
+    position: absolute;
+    transform: translateY(-50%);
+
+    width: 100vw;
+    height: 100dvh;
+
+    top: 50%;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 1024px) {
+        // margin-top: 8rem;
+        padding-bottom: 3rem;
+
+        height: auto;
+        flex-direction: column;
+
+        top: 3rem;
+        transform: none;
+    }
+}
+
+
+.slider {
+    width: 100%;
+}
+

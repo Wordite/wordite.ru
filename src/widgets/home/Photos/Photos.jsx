@@ -7,8 +7,14 @@ import React, { useEffect, useState } from 'react'
 import { enterView } from '../../../app/js/enterView'
 import { useAnimations } from '../../../app/hooks/useAnimations'
 
+import { $locale } from '../../../app/store/locale'
+import { useTranslations } from '../../../app/i18n/utils'
+import { useStore } from '@nanostores/react'
+
 const Photos = () => {
   const animations = useAnimations()
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     enterView({
@@ -23,37 +29,37 @@ const Photos = () => {
 
         animations.class({
           selector: '.' + style.title,
-          className: 'active'
+          className: 'active',
         })
       },
       exit: () => {
         animations.reset()
-      }
+      },
     })
-  }, [])
+  }, [animations])
 
   return (
-    <section className={style.photos}>
-      <h2 className={style.title + ' text'}>HOVER TO SEE MY PHOTOS</h2>
+    <section className={style.photos} id='photos'>
+      <h2 className={style.title + ' text'}>{t('photos.title')}</h2>
 
       <div className={style.content}>
         <figure className={style.photo}>
           <div className={style.mask}>
-            <p>WAIT YOUR MOUSE</p>
+            <p>{t('photos.maskText')}</p>
           </div>
           <img src={photo_2.src} className={style.image} alt='my photo' />
         </figure>
 
         <figure className={style.photo}>
           <div className={style.mask}>
-            <p>WAIT YOUR MOUSE</p>
+            <p>{t('photos.maskText')}</p>
           </div>
           <img src={photo_3.src} className={style.image} alt='my photo' />
         </figure>
 
         <figure className={style.photo}>
           <div className={style.mask}>
-            <p>WAIT YOUR MOUSE</p>
+            <p>{t('photos.maskText')}</p>
           </div>
           <img src={photo_1.src} className={style.image} alt='my photo' />
         </figure>

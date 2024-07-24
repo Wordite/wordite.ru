@@ -1,8 +1,7 @@
 ---
 import ClientStateSync from '../store/ClientStateSync'
-import Init from '../Init.astro'
-
 import { $locale } from '../store/locale'
+
 const { locale } = Astro.params
 $locale.set(locale)
 
@@ -26,6 +25,5 @@ import LoaderContent from '../../widgets/loader/LoaderContent'
 		</Loader>
 		<ClientStateSync locale={locale} client:load />
 		<slot />
-		<Init />
 	</body>
 </html>

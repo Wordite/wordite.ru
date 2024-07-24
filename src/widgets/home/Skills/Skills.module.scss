@@ -8,6 +8,17 @@
 
     padding: 0 calc((100vw - 76.5rem) / 2);
     transform: translate3d(calc((100vw - 76.5rem) / -2), 0, 0);
+
+    @media only screen and (max-width: 1024px) {
+      margin-top: 2rem;
+      width: calc(100% + 10vw);
+
+      padding: 0;
+      left: 0;
+
+      transform: translateX(-5vw);
+      padding: 0;
+    }
 }
 
 .title {
@@ -20,6 +31,11 @@
 
     margin: auto;
     display: block;
+
+    @media only screen and (max-width: 1024px) {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
 }
 
 
@@ -39,6 +55,15 @@
     left: calc((100vw - 76.5rem) / -2);
 
     margin-top: 7.5rem;
+
+    width: 100vw !important;
+    object-fit: contain;
+
+    @media only screen and (max-width: 1024px) {
+      left: 0;
+      // height: 80dvh;
+      margin-top: 1rem;
+    }
 }
 
 
