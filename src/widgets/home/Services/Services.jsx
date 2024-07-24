@@ -8,6 +8,11 @@ import React, { useEffect } from 'react'
 import { $locale } from '../../../app/store/locale'
 import { useTranslations } from '../../../app/i18n/utils'
 
+import puma from '../../../assets/puma.png'
+import college from '../../../assets/college.png'
+import elitestrike from '../../../assets/elitestrike.png'
+import crown from '../../../assets/crown.png'
+
 const Services = () => {
   const section = useStore($section)
   const animations = useAnimations(true)
@@ -51,10 +56,10 @@ const Services = () => {
       <h2 className={style.title + ' text_dark'}>{t('services.title')}</h2>
 
       <div className={style.list}>
-        <Service title={t('services.landing.title')} text={t('services.landing.text')} />
-        <Service title={t('services.multipage.title')} text={t('services.multipage.text')} />
-        <Service title={t('services.shop.title')} text={t('services.shop.text')} />
-        <Service title={t('services.webapp.title')} text={t('services.webapp.text')} />
+        <Service title={t('services.landing.title')} text={t('services.landing.text')} path={elitestrike.src} />
+        <Service title={t('services.multipage.title')} text={t('services.multipage.text')} path={college.src} />
+        <Service title={t('services.shop.title')} text={t('services.shop.text')} path={crown.src} />
+        <Service title={t('services.webapp.title')} text={t('services.webapp.text')} path={puma.src} />
       </div>
     </section>
   )

@@ -120,7 +120,7 @@ import style from './WorkSlide.module.scss'
 
 const WorkSlide = ({ link = '', path }) => {
   return (
-    <a href={link} target='_blank'>
+    <a href={link}>
       <figure className={`${style.work} slide_work`}>
         <img src={path} alt='some' />
       </figure>

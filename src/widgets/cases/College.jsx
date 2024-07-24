@@ -5,9 +5,14 @@ import { useEffect } from 'react'
 import { useAnimations } from '../../app/hooks/useAnimations'
 import { $loader } from '../../app/store/loader'
 
+import { $locale } from '../../app/store/locale'
+import { useTranslations } from '../../app/i18n/utils'
+
 const College = () => {
   const animations = useAnimations()
   const loader = useStore($loader)
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     if (loader !== 'closed') return
@@ -24,7 +29,7 @@ const College = () => {
       direction: 'x',
       startOffset: -50,
       duration: 0.35,
-      delay: 0.15
+      delay: 0.15,
     })
 
     animations.block({
@@ -32,15 +37,15 @@ const College = () => {
       direction: 'x',
       startOffset: -50,
       duration: 0.35,
-      delay: 0.3
+      delay: 0.3,
     })
   }, [loader])
+
   return (
     <>
-      <h1>COLLEGE</h1>
-      <h3>STACK: NEXT.JS, SCSS, REDUX, EXPRESS, MONGO</h3>
-
-      <img class='case' src={college.src} alt='case' />
+      <h1>{t('college.title')}</h1>
+      <h3>{t('college.stack')}</h3>
+      <img className='case' src={college.src} alt={t('college.image.alt')} />
     </>
   )
 }

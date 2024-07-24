@@ -7,9 +7,14 @@ import React, { useEffect, useState } from 'react'
 import { enterView } from '../../app/js/enterView'
 import { useAnimations } from '../../app/hooks/useAnimations'
 
+import { $locale } from '../../app/store/locale'
+import { useTranslations } from '../../app/i18n/utils'
+import { useStore } from '@nanostores/react'
 
 const PageFooter = () => {
   const animations = useAnimations()
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     enterView({
@@ -66,34 +71,34 @@ const PageFooter = () => {
         animations.reset()
       },
     })
-  }, [])
+  }, [animations, locale])
 
   return (
     <footer className={style.footer}>
-      <h2 className={style.title + ' text'}>FOOTER</h2>
+      <h2 className={style.title + ' text'}>{t('footer.title')}</h2>
 
       <div className={style.content}>
         <div className={style.category}>
-          <p className={style.head + ' text'}>SOCIALS</p>
+          <p className={style.head + ' text'}>{t('footer.socials')}</p>
           <nav className={style.links}>
-            <SquareLink title='Github' number='01' type='socials' icon='github' link='https://github.com/Wordite' />
-            <SquareLink title='VK' number='02' type='socials' icon='vk' link='https://vk.com/l.o_oll' />
-            <SquareLink title='Email' number='03' type='socials' icon='mail' link='mailto:wordite123@gmail.com' />
-            <SquareLink title='Telegram' number='04' type='socials' icon='telegram' link='https://t.me/mr_alberg' />
+            <SquareLink title={t('footer.github')} number='01' type='socials' icon='github' link='https://github.com/Wordite' />
+            <SquareLink title={t('footer.vk')} number='02' type='socials' icon='vk' link='https://vk.com/l.o_oll' />
+            <SquareLink title={t('footer.email')} number='03' type='socials' icon='mail' link='mailto:wordite123@gmail.com' />
+            <SquareLink title={t('footer.telegram')} number='04' type='socials' icon='telegram' link='https://t.me/mr_alberg' />
           </nav>
         </div>
 
         <div className={style.category}>
-          <p className={style.head + ' text'}>PAGES</p>
+          <p className={style.head + ' text'}>{t('footer.pages')}</p>
           <nav className={style.links}>
-            <SquareLink title='Home' number='01' type='pages' icon='link' />
-            <SquareLink title='All works' number='02' type='pages' icon='link' />
+            <SquareLink title={t('footer.home')} number='01' type='pages' icon='link' link={`/${locale}`} />
+            <SquareLink title={t('footer.allWorks')} number='02' type='pages' icon='link' link={`/${locale}/works`} />
           </nav>
         </div>
 
         <div className={style.info}>
-          <img src={glass.src} className={style.image + ' ' + style.glass} alt='X glass' />
-          <img src={circle.src} className={style.image + ' ' + style.circle} alt='bg circle' />
+          <img src={glass.src} className={style.image + ' ' + style.glass} alt={t('footer.glassAlt')} />
+          <img src={circle.src} className={style.image + ' ' + style.circle} alt={t('footer.circleAlt')} />
 
           <p className={`${style.mail} text`}>
             <a href='mailto:wordite123@gmail.com'>wordite123@gmail.com</a>
@@ -102,7 +107,7 @@ const PageFooter = () => {
       </div>
 
       <div className={style.bottom}>
-        <p className={style.year + ' text_white_80'}>2024</p>
+        <p className={style.year + ' text_white_80'}>{new Date().getFullYear()}</p>
       </div>
     </footer>
   )

@@ -15,6 +15,10 @@
     font-weight: bold;
     font-size: 5rem;
 
+    &.ru {
+        font-size: 4rem;
+    }
+
     width: 55rem;
     text-align: center;
 
@@ -39,7 +43,13 @@
     @media only screen and (max-width: 1024px) {
         font-size: 2.5rem;
         width: 100%;
-        margin-top: 4.5rem;
+        margin-top: 5.5rem;
+
+        &.ru {
+            margin-top: 6.5rem;
+            font-size: 1.55rem;
+            padding-top: 0.05rem;
+        }
 
         & span {
             width: 100%;

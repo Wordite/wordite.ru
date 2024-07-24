@@ -43,14 +43,14 @@ const FirstScreen = () => {
         <Earth className={style.earth} />
 
         <div className={style.text}>
-          <h1 className={style.title}>
+          <h1 className={`${style.title} ${locale === 'ru' ? style.ru : ''}`}>
             <span className='text'>{t('first.screen.title.web')}</span>
-            <span className='text'>{t('first.screen.title.developer')}</span>
-            <span className='text'>{t('first.screen.title.since')}</span>
+            <span className='text'>{locale === 'en' ? t('first.screen.title.developer') : t('first.screen.title.developer') + ' ' + t('first.screen.title.since')}</span>
+            {locale === 'en' && (<span className='text'>{t('first.screen.title.since')}</span>)}
             <span className='text'>{t('first.screen.title.year')}</span>
           </h1>
 
-          <LinkMouseBlock href='/' className={style.contact}>
+          <LinkMouseBlock href={`/${locale}/works`} className={style.contact}>
             {t('first.screen.link.portfolio')}
           </LinkMouseBlock>
         </div>

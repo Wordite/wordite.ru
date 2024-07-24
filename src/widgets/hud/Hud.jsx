@@ -4,13 +4,15 @@ import Burger from '../../features/Burger/Burger'
 import style from './Hud.module.scss'
 import { $section } from '../../app/store/section'
 import { $down } from '../../app/store/down'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { $earth } from '../../app/store/earth'
 import { useAnimations } from '../../app/hooks/useAnimations'
 import { $loader } from '../../app/store/loader'
 
 import { $locale } from '../../app/store/locale'
 import { useTranslations } from '../../app/i18n/utils'
+import { $isHome } from '../../app/store/isHome'
+
 
 const Hud = () => {
   const section = useStore($section)
@@ -20,6 +22,11 @@ const Hud = () => {
   const locale = useStore($locale)
   const t = useTranslations(locale)
   const animations = useAnimations()
+  const [url, setUrl] = useState('')
+
+  useEffect(() => {
+    setUrl(window.location.href)
+  }, [])
 
   useEffect(() => {
     setInterval(() => {
@@ -70,21 +77,23 @@ const Hud = () => {
 
       <Socials />
 
-      <div className={`${style.accent} ${isDown ? style.down : ''}`}>
-        <span className={`${style.slogan} ${section !== 1 && !isDown ? style.hidden : ''}`}>{t('hud.slogan')}</span>
-        <a className={`${style.works} ${section !== 1 && !isDown ? style.active : ''} text_hover_white`} href='/works'>
+      <div className={`${style.accent} ${isDown ? style.down + ' down ' : ''} hud_accent ${locale === 'ru' ? style.ru : ''}`}>
+        <span className={`${style.slogan} ${section !== 1 && !isDown ? style.hidden : ''} ${locale === 'ru' ? style.ru : ''}`}>{t('hud.slogan')}</span>
+        <a className={`${style.works} ${section !== 1 && !isDown ? style.active : ''} text_hover_white`} href={`/${locale}/works`}>
           {t('hud.viewAllWorks')}
         </a>
       </div>
 
       <Burger />
 
+
+
       <div className={style.menu}>
         <div className={style.languageLinks}>
-          <a href='/en' className={`${style.languageLink} text_hover_white`}>
+          <a href={url ? url.replace(/\/(en|ru)(?=\/|$)/, '/en') : '/en'} className={`${style.languageLink} text_hover_white`}>
             {t('hud.en')}
           </a>
-          <a href='/ru' className={`${style.languageLink} text_hover_white`}>
+          <a href={url ? url.replace(/\/(en|ru)(?=\/|$)/, '/ru') : '/ru'} className={`${style.languageLink} text_hover_white`}>
             {t('hud.ru')}
           </a>
         </div>

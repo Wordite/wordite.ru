@@ -4,10 +4,14 @@ import { $isMobile } from '../../app/store/isMobile'
 import { useEffect } from 'react'
 import { useAnimations } from '../../app/hooks/useAnimations'
 import { $loader } from '../../app/store/loader'
+import { $locale } from '../../app/store/locale'
+import { useTranslations } from '../../app/i18n/utils'
 
 const Puma = () => {
   const animations = useAnimations()
   const loader = useStore($loader)
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     if (loader !== 'closed') return
@@ -24,7 +28,7 @@ const Puma = () => {
       direction: 'x',
       startOffset: -50,
       duration: 0.35,
-      delay: 0.15
+      delay: 0.15,
     })
 
     animations.block({
@@ -32,15 +36,15 @@ const Puma = () => {
       direction: 'x',
       startOffset: -50,
       duration: 0.35,
-      delay: 0.3
+      delay: 0.3,
     })
   }, [loader])
+
   return (
     <>
-      <h1>Puma</h1>
-      <h3>STACK: NEXT.JS, SCSS, REDUX, EXPRESS, MONGO</h3>
-
-      <img class='case' src={pumaWork.src} alt='case' />
+      <h1>{t('puma.title')}</h1>
+      <h3>{t('puma.stack')}</h3>
+      <img className='case' src={pumaWork.src} alt={t('puma.image.alt')} />
     </>
   )
 }

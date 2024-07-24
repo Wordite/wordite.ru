@@ -4,18 +4,16 @@ import { $menu } from '../../app/store/menu'
 import React, { useEffect } from 'react'
 import { useAnimations } from '../../app/hooks/useAnimations'
 import { $isMobile } from '../../app/store/isMobile'
-import Github from '../../app/assets/images/icons/github.svg?react'
-import VK from '../../app/assets/images/icons/vk.svg?react'
-import Gmail from '../../app/assets/images/icons/gmail.svg?react'
-import Telegram from '../../app/assets/images/icons/telegram.svg?react'
+import Github from '../../assets/icons/github.svg?react'
+import VK from '../../assets/icons//vk.svg?react'
+import Gmail from '../../assets/icons//gmail.svg?react'
+import Telegram from '../../assets/icons//telegram.svg?react'
 import { useCloseMenu } from '../../app/hooks/useCloseMenu'
 import { $scrollTo } from '../../app/store/scrollTo'
 import { $isHome } from '../../app/store/isHome'
 
 import { $locale } from '../../app/store/locale'
 import { useTranslations } from '../../app/i18n/utils'
-
-
 
 const MobileMenu = () => {
   const state = useStore($menu)
@@ -24,6 +22,8 @@ const MobileMenu = () => {
   const animations = useAnimations()
   const closeMenu = useCloseMenu()
   const isHome = useStore($isHome)
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   const handleClick = (e) => {
     const target = e.currentTarget
@@ -59,7 +59,7 @@ const MobileMenu = () => {
       <div className={`${style.backgroundElement} mobile_menu_background`}></div>
       <div className={`${style.backgroundElement} mobile_menu_background`}></div>
 
-      <h3 className={`${style.title} mobile_menu_title`}>MENU</h3>
+      <h3 className={`${style.title} mobile_menu_title`}>{t('menu.title')}</h3>
 
       <div className={`${style.languageLinks} mobile_menu_languageLinks`}>
         <a href='/en' className={`${style.languageLink}`}>
@@ -74,37 +74,37 @@ const MobileMenu = () => {
         <ul>
           {!isHome ? (
             <li className={style.link}>
-              <a href='/en' onClick={handleClick}>
-                HOME
+              <a href={`/${locale}`} onClick={handleClick}>
+                {t('menu.home')}
               </a>
             </li>
           ) : (
             <>
               <li className={style.link}>
                 <a href='#hero' onClick={handleClick}>
-                  FIRST SCREEN
+                  {t('menu.firstScreen')}
                 </a>
               </li>
               <li className={style.link}>
                 <a href='#services' onClick={handleClick}>
-                  SERVICES
+                  {t('menu.services')}
                 </a>
               </li>
               <li className={style.link}>
                 <a href='#skills' onClick={handleClick}>
-                  SKILLS
+                  {t('menu.skills')}
                 </a>
               </li>
               <li className={style.link}>
                 <a href='#photos' onClick={handleClick}>
-                  MY PHOTOS
+                  {t('menu.photos')}
                 </a>
               </li>
             </>
           )}
           <li className={style.link}>
-            <a href='/en/works' onClick={handleClick}>
-              PORTFOLIO
+            <a href={`/${locale}/works`} onClick={handleClick}>
+              {t('menu.portfolio')}
             </a>
           </li>
         </ul>

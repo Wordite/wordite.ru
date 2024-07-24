@@ -1,9 +1,9 @@
 import style from './Socials.module.scss'
 
-import Github from '../../app/assets/images/icons/github.svg?react'
-import VK from '../../app/assets/images/icons/vk.svg?react'
-import Gmail from '../../app/assets/images/icons/gmail.svg?react'
-import Telegram from '../../app/assets/images/icons/telegram.svg?react'
+import Github from '../../assets/icons/github.svg?react'
+import VK from '../../assets/icons//vk.svg?react'
+import Gmail from '../../assets/icons//gmail.svg?react'
+import Telegram from '../../assets/icons//telegram.svg?react'
 import { useStore } from '@nanostores/react'
 import { $down } from '../../app/store/down'
 import { $earth } from '../../app/store/earth'
@@ -11,11 +11,17 @@ import { useAnimations } from '../../app/hooks/useAnimations'
 import { useEffect } from 'react'
 import { $loader } from '../../app/store/loader'
 
+import { $locale } from '../../app/store/locale'
+import { useTranslations } from '../../app/i18n/utils'
+
+
 const Socials = () => {
   const isDown = useStore($down)
   const earth = useStore($earth)
   const animations = useAnimations()
   const loader = useStore($loader)
+  const locale = useStore($locale)
+  const t = useTranslations(locale)
 
   useEffect(() => {
     const isHome = document.body.querySelector('#home')
@@ -54,7 +60,7 @@ const Socials = () => {
         </a>
       </div>
 
-      <p className={`${style.text}`}>DO YOU HAVE MONEY FOR ME?</p>
+      <p className={`${style.text}`}>{t('socials.moneyForMe')}</p>
     </div>
   )
 }

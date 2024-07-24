@@ -51,6 +51,10 @@
   // transition: .3s;
   transition-delay: 0.3s;
 
+  &.ru {
+    width: 9.5rem;
+  }
+
   &.down {
     transition-delay: 0.3s;
     transform: translateY(0.85rem);
@@ -69,7 +73,7 @@
   right: 0;
   bottom: 0;
 
-  transform: translate3d(-110%, 0, 0);
+  transform: translate3d(-140%, 0, 0);
   transition-delay: 0;
 
   &.active {

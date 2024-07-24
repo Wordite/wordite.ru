@@ -1,0 +1,12 @@
+# Перенаправление с главной страницы на /en
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?wordite\.ru$ [NC]
+RewriteRule ^$ /en [R=301,L]
+
+# Перенаправление на 404.html для всех несуществующих страниц
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /404.html [L,R=404]
+
+ErrorDocument 404 http://wordite.ru/404.html
+

@@ -49,7 +49,9 @@
 .links {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    // gap: 1.25rem;
+    row-gap: 1.25rem;
+    justify-content: space-between;
 
     width: 14.75rem;
 }

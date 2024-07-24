@@ -114,6 +114,18 @@ html[page="home"] {
   overflow: hidden;
 }
 
+html:not([page="home"]) {
+  & .hud_accent {
+    transition: .3s !important;
+  }
+
+  & .hud_accent.down {
+    transition: .3s !important;
+  }
+}
+
+
+
 .wordite_container {
   width: 76.5rem;
   margin: auto;

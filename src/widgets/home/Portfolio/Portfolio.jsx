@@ -69,10 +69,10 @@ const Portfolio = () => {
         <h2 className={style.title + ' text'}>{t('portfolio.title')}</h2>
 
         <div className={style.works}>
-          <Work path={college.src} link='' />
-          <Work path={puma.src} link='' />
-          <Work path={crownclother.src} link='' />
-          <Work path={twopizza.src} link='' />
+          <Work path={college.src} link={`/${locale}/cases/college`} description={t('work.multipage')} />
+          <Work path={puma.src} link={`/${locale}/cases/puma`} description={t('work.landingPage')} />
+          <Work path={crownclother.src} link={`/${locale}/cases/crownclothes`} description={t('work.shop')} />
+          <Work path={twopizza.src} link={`/${locale}/cases/twopizza`} description={t('work.shop')} />
         </div>
 
         <div className={style.slogan}>
@@ -82,10 +82,6 @@ const Portfolio = () => {
 
         <div className={style.background}></div>
         <Coffee className={style.coffee} />
-
-        <LinkMouseBlock href='/' className={style.allWorks}>
-          {t('portfolio.viewAllWorks')}
-        </LinkMouseBlock>
       </div>
       <p id='home' className='hidden'></p>
     </section>
