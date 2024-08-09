@@ -8,6 +8,7 @@ $locale.set(locale)
 import '../style/globals.scss'
 import Loader from '../../widgets/loader/Loader'
 import LoaderContent from '../../widgets/loader/LoaderContent'
+import Metric from '../yandex/Metric.astro'
 ---
 <!doctype html>
 <html lang={locale}>
@@ -25,5 +26,6 @@ import LoaderContent from '../../widgets/loader/LoaderContent'
 		</Loader>
 		<ClientStateSync locale={locale} client:load />
 		<slot />
+		<Metric />
 	</body>
 </html>

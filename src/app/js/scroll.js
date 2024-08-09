@@ -220,7 +220,6 @@ const upHandlers = {
     if (isMobile) {
       firstScreen.style.display = 'block'
       firstContainer.style.transform = 'translate3d(0,0,0)'
-      console.log('UP HANDLER SCROLL TO FIRST SCREEN')
 
       setTimeout(() => {
         secondContainer.style.display = 'none'

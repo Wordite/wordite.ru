@@ -1,45 +1,59 @@
 .swiper {
-    opacity: 0;
+  opacity: 0;
+  max-width: 1920px;
+  overflow: hidden;
 }
-
-
 
 .swiper-slide {
-    width: 35rem;
-    height: 23.5rem;
+  width: 35rem;
+  height: 23.5rem;
 
-    position: relative;
-    border-radius: .35rem;
-    overflow: hidden;
+  position: relative;
+  border-radius: 0.35rem;
+  overflow: auto;
 
-    &::after {
-        position: absolute;
-        content: '';
+  @media screen and (max-width: 1024px) {
+    width: 87%;
+    height: 8rem;
+  }
 
-        top: 0;
-        left: 0;
+  --shadow-opacity: 0;
 
-        width: 100%;
-        height: 100%;
+  &::after {
+    position: absolute;
+    content: '';
 
-        background: rgba(0, 0, 0, 0.4);
-        transition: .8s;
+    top: 0;
+    left: 0;
 
-        border-radius: 5px;
-        pointer-events: none;
-    }
+    width: 100%;
+    height: 100%;
 
-    @media screen and (max-width: 1024px) {
-        width: 87%;
-        height: 8rem;
-    }
+    opacity: var(--shadow-opacity);
+
+    background: rgba(0, 0, 0, 0.4);
+    transition: 0.8s;
+
+    border-radius: .25rem;
+    pointer-events: none;
+  }
 }
 
+.slide_work {
+  transform: translateX(-100px);
+  opacity: 0;
+
+  &.active {
+    transform: none;
+    opacity: 1;
+
+    transition: 0.35s;
+  }
+}
 
 .swiper-slide-active {
-    &::after {
-        opacity: 0;
-        transition: .8s;
-    }
+  &::after {
+    opacity: 0 !important;
+    transition: 0.8s;
+  }
 }
-

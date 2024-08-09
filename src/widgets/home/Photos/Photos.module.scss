@@ -3,7 +3,8 @@
 .photos {
     position: relative;
     width: calc(100% + 10%);
-    transform: translate(-5%, 6rem);
+    // transform: translate(-5%, 6rem);
+    transform: translate(-5%, 0);
 
     &::before {
         content: '';

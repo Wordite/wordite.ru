@@ -258,7 +258,7 @@ function useAnimations(isUseState = false) {
         // )
 
         // document.body.querySelector('.menu_section_title').classList.remove('active')
-        Array.from(document.body.querySelectorAll('.menu_section_title')).map((el, i) => setTimeout(() => el.classList.remove('active'), i * 50))
+        Array.from(document.body.querySelectorAll('.menu_section_title')).reverse().map((el, i) => setTimeout(() => el.classList.remove('active'), i * 50))
 
         gsap.fromTo(
           '.menu_home',

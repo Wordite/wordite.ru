@@ -2,6 +2,7 @@ import { useStore } from '@nanostores/react'
 import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js'
 import { $section } from '../app/store/section'
 import { $loader } from '../app/store/loader'
 import { $earth } from '../app/store/earth'
@@ -115,7 +116,14 @@ function graphic(container) {
     renderer.render(scene, camera)
   }
 
+  const draco = new DRACOLoader()
+  draco.setDecoderConfig({ type: 'js' })
+  draco.setDecoderPath('/draco/')
+
   const loader = new GLTFLoader()
+  loader.setDRACOLoader(draco)
+
+
   loader.load('/3d/earth.glb', function (gltf) {
     earth = gltf.scene.children[0]
     earth.geometry.center()

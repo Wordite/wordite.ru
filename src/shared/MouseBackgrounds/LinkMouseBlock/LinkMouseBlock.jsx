@@ -1,10 +1,14 @@
+import { useStore } from '@nanostores/react'
 import style from '../MouseBackground.module.scss'
+import { $isMobile } from '../../../app/store/isMobile'
 
 
 const LinkMouseBlock = ({children, className, href}) => {
   const circles = []
+  const isMobile = useStore($isMobile)
 
   const mouseMove = (e) => {
+    if (isMobile) return
     const span = circles[circles.length - 1]
     if (!span) return
 
@@ -18,6 +22,7 @@ const LinkMouseBlock = ({children, className, href}) => {
   }
 
   const mouseEnter = (e) => {
+    if (isMobile) return
     const container = e.currentTarget
 
     const span = document.createElement('span')
@@ -33,6 +38,7 @@ const LinkMouseBlock = ({children, className, href}) => {
   }
 
   const mouseLeave = () => {
+    if (isMobile) return
     const el = circles.pop()
     if (!el) return
 

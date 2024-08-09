@@ -15,6 +15,7 @@ import Footer from '../../widgets/footer/HomeFooter';
 import Menu from '../../widgets/menu/Menu';
 import MobileMenu from '../../widgets/mobileMenu/MobileMenu';
 import Init from '../../app/Init.astro'
+import Contact from '../../widgets/home/Contact/Contact';
 
 const { locale } = Astro.params
 
@@ -38,6 +39,7 @@ const t = useTranslations(lang)
       <Services client:idle />
       <Skills client:idle />
       <Photos client:idle />
+      <!-- <Contact client:idle /> -->
       <Footer client:idle />
     </div>
   </div>

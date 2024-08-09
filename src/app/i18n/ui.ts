@@ -48,7 +48,7 @@ export const ui = {
     'menu.services': 'SERVICES',
     'menu.skills': 'SKILLS',
     'menu.photos': 'MY PHOTOS',
-    'menu.allWorks': 'ALL WORKS',
+    'menu.allWorks': 'WORKS',
     'menu.title': 'MENU',
     'menu.home': 'Home',
     'hud.wordite': 'WORDITE',
@@ -89,7 +89,7 @@ export const ui = {
 
 
     'puma.title': 'Puma',
-    'puma.stack': 'STACK: NEXT.JS, TAILWIND, REDUX, EXPRESS, MYSQL',
+    'puma.stack': 'STACK: NEXT.JS, TAILWIND, REDUX',
     'puma.image.alt': 'case',
 
     'twopizza.title': '2PIZZA',
@@ -99,7 +99,7 @@ export const ui = {
     'socials.moneyForMe': 'DO YOU HAVE MONEY FOR ME?',
   },
   ru: {
-    'first.screen.title.web': 'ПРОФЕССИОНАЛЬЫЙ',
+    'first.screen.title.web': 'ПРОФЕССИОНАЛЬНЫЙ',
     'first.screen.title.developer': 'ВЕБ',
     'first.screen.title.since': 'РАЗРАБОТЧИК',
     'first.screen.title.year': 'С 2020',
@@ -180,7 +180,7 @@ export const ui = {
     'eliteStrike.image.alt': 'кейс',
 
     'puma.title': 'Puma',
-    'puma.stack': 'STACK: NEXT.JS, TAILWIND, REDUX, EXPRESS, MYSQL',
+    'puma.stack': 'STACK: NEXT.JS, TAILWIND, REDUX',
     'puma.image.alt': 'кейс',
 
     'twopizza.title': '2PIZZA',

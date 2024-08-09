@@ -10,3 +10,10 @@ RewriteRule . /404.html [L,R=404]
 
 ErrorDocument 404 http://wordite.ru/404.html
 
+
+ # Настройка кэширования .glb файлов
+<FilesMatch "\.(glb|gltf)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>

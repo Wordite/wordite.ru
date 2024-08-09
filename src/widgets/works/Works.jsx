@@ -15,6 +15,8 @@ import puma from '../../assets/case_cards/puma.png'
 import twopizza from '../../assets/case_cards/twopizza.png'
 import crownclother from '../../assets/case_cards/crownclothes.png'
 import elitestrike from '../../assets/case_cards/elitestrike.png'
+import findproducts from '../../assets/case_cards/findproducts.png'
+
 import { useStore } from '@nanostores/react'
 import { $isMobile } from '../../app/store/isMobile'
 import { useEffect } from 'react'
@@ -33,7 +35,6 @@ function desktop(locale) {
       loop={true}
       simulateTouch={false}
       speed={1200}
-      onSlideChange={() => console.log('slide change')}
       coverflowEffect={{
         rotate: 5,
         stretch: -100,
@@ -55,6 +56,9 @@ function desktop(locale) {
         <WorkSlide path={puma.src} link={`/${locale}/cases/puma`} />
       </SwiperSlide>
       <SwiperSlide>
+        <WorkSlide path={findproducts.src} link={`/${locale}/cases/findproducts`} />
+      </SwiperSlide>
+      <SwiperSlide>
         <WorkSlide path={twopizza.src} link={`/${locale}/cases/twopizza`} />
       </SwiperSlide>
       <SwiperSlide>
@@ -72,6 +76,7 @@ function mobile(locale) {
     <>
       <WorkSlide path={college.src} link={`/${locale}/cases/college`} />
       <WorkSlide path={puma.src} link={`/${locale}/cases/puma`} />
+      <WorkSlide path={findproducts.src} link={`/${locale}/cases/findproducts`} />
       <WorkSlide path={twopizza.src} link={`/${locale}/cases/twopizza`} />
       <WorkSlide path={crownclother.src} link={`/${locale}/cases/crownclothes`} />
       <WorkSlide path={elitestrike.src} link={`/${locale}/cases/elitestrike`} />
@@ -91,18 +96,22 @@ const Works = () => {
     if (loader !== 'closed') return
     if (loader !== 'closed' && isMobile !== oldIsMobile) oldIsMobile = isMobile
 
-    animations.blockChildren({
+    animations.class({
       selector: '.slide_work',
-      direction: 'x',
-      startOffset: -100,
-      stagger: 0.15,
-      duration: 0.3,
+      isForChildren: true,
+      stagger: 200,
+      delay: 0,
+      className: 'active',
+    })
+
+    Array.from(document.body.querySelectorAll('.swiper-slide')).forEach((el, i) => {
+      setTimeout(() => el.style.setProperty('--shadow-opacity', '1'), i * 340)
     })
 
     animations.block({
       selector: '.swiper',
       direction: 'x',
-      startOffset: -100,
+      startOffset: 0,
       duration: 0.35,
     })
   }, [loader, isMobile])

@@ -96,6 +96,11 @@ html {
   background: #111111;
   color: white;
 
+  @media only screen and (min-width: 1920px) {
+    font-size: 20px;
+  }
+
+
   @media only screen and (max-width: 1024px) {
     font-size: calc(1vw + 1vh);
   }
@@ -110,7 +115,12 @@ html {
 }
 
 html[page="home"] {
-  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body[page="home"] {
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -159,7 +169,6 @@ html:not([page="home"]) {
 
 .scrollable_container {
   height: 100dvh;
-  overflow: scroll;
 
   position: absolute;
   width: 100%;
@@ -167,8 +176,13 @@ html:not([page="home"]) {
   top: 100%;
   left: 0;
 
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  overflow: hidden;
   display: none;
+
+  @media only screen and (max-width: 1024px) {
+    overflow-y: scroll;
+  }
 }
 
 .scrollable_content {
@@ -328,3 +342,10 @@ html:not([page="home"]) {
 
   transition: 0.3s ease-in-out;
 }
+
+
+.first_screen_first_word {
+  padding-top: .2rem !important;
+}
+
+

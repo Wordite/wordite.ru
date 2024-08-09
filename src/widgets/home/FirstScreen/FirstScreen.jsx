@@ -41,10 +41,9 @@ const FirstScreen = () => {
     <section className={style.firstScreen}>
       <div className='section_content'>
         <Earth className={style.earth} />
-
         <div className={style.text}>
           <h1 className={`${style.title} ${locale === 'ru' ? style.ru : ''}`}>
-            <span className='text'>{t('first.screen.title.web')}</span>
+            <span className='text first_screen_first_word'>{t('first.screen.title.web')}</span>
             <span className='text'>{locale === 'en' ? t('first.screen.title.developer') : t('first.screen.title.developer') + ' ' + t('first.screen.title.since')}</span>
             {locale === 'en' && (<span className='text'>{t('first.screen.title.since')}</span>)}
             <span className='text'>{t('first.screen.title.year')}</span>

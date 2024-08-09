@@ -5,12 +5,11 @@ import { useStore } from '@nanostores/react'
 import { $section } from '../../../app/store/section'
 import React, { useEffect } from 'react'
 import { useAnimations } from '../../../app/hooks/useAnimations'
-import LinkMouseBlock from '../../../shared/MouseBackgrounds/LinkMouseBlock/LinkMouseBlock'
 
 import college from '../../../assets/case_cards/college.png'
 import puma from '../../../assets/case_cards/puma.png'
 import twopizza from '../../../assets/case_cards/twopizza.png'
-import crownclother from '../../../assets/case_cards/crownclothes.png'
+import findproducts from '../../../assets/case_cards/findproducts.png'
 
 import { $locale } from '../../../app/store/locale'
 import { useTranslations } from '../../../app/i18n/utils'
@@ -71,7 +70,7 @@ const Portfolio = () => {
         <div className={style.works}>
           <Work path={college.src} link={`/${locale}/cases/college`} description={t('work.multipage')} />
           <Work path={puma.src} link={`/${locale}/cases/puma`} description={t('work.landingPage')} />
-          <Work path={crownclother.src} link={`/${locale}/cases/crownclothes`} description={t('work.shop')} />
+          <Work path={findproducts.src} link={`/${locale}/cases/findproducts`} description={t('work.landingPage')} />
           <Work path={twopizza.src} link={`/${locale}/cases/twopizza`} description={t('work.shop')} />
         </div>
 
