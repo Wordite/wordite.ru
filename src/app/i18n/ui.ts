@@ -71,7 +71,7 @@ export const ui = {
     'footer.telegram': 'Telegram',
     'footer.pages': 'PAGES',
     'footer.home': 'Home',
-    'footer.allWorks': 'All works',
+    'footer.allWorks': 'Works',
     'footer.glassAlt': 'X glass',
     'footer.circleAlt': 'bg circle',
 

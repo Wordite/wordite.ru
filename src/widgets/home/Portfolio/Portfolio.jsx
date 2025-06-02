@@ -8,8 +8,10 @@ import { useAnimations } from '../../../app/hooks/useAnimations'
 
 import college from '../../../assets/case_cards/college.png'
 import puma from '../../../assets/case_cards/puma.png'
-import twopizza from '../../../assets/case_cards/twopizza.png'
+// import twopizza from '../../../assets/case_cards/twopizza.png'
 import findproducts from '../../../assets/case_cards/findproducts.png'
+// import elitestrike from '../../../assets/case_cards/elitestrike.png'
+import tggame from '../../../assets/case_cards/tggame.png'
 
 import { $locale } from '../../../app/store/locale'
 import { useTranslations } from '../../../app/i18n/utils'
@@ -68,10 +70,10 @@ const Portfolio = () => {
         <h2 className={style.title + ' text'}>{t('portfolio.title')}</h2>
 
         <div className={style.works}>
+          <Work path={tggame.src} link={`/${locale}/cases/tggame`} description={t('work.multipage')} />
           <Work path={college.src} link={`/${locale}/cases/college`} description={t('work.multipage')} />
           <Work path={puma.src} link={`/${locale}/cases/puma`} description={t('work.landingPage')} />
           <Work path={findproducts.src} link={`/${locale}/cases/findproducts`} description={t('work.landingPage')} />
-          <Work path={twopizza.src} link={`/${locale}/cases/twopizza`} description={t('work.shop')} />
         </div>
 
         <div className={style.slogan}>

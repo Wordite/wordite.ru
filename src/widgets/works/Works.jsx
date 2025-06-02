@@ -12,10 +12,11 @@ import './Works.scss'
 
 import college from '../../assets/case_cards/college.png'
 import puma from '../../assets/case_cards/puma.png'
-import twopizza from '../../assets/case_cards/twopizza.png'
-import crownclother from '../../assets/case_cards/crownclothes.png'
 import elitestrike from '../../assets/case_cards/elitestrike.png'
 import findproducts from '../../assets/case_cards/findproducts.png'
+import cardio from '../../assets/case_cards/cardio.png'
+import coffee from '../../assets/case_cards/coffee.png'
+import tggame from '../../assets/case_cards/tggame.png'
 
 import { useStore } from '@nanostores/react'
 import { $isMobile } from '../../app/store/isMobile'
@@ -50,6 +51,9 @@ function desktop(locale) {
       modules={[Mousewheel, EffectCoverflow]}
     >
       <SwiperSlide>
+        <WorkSlide path={tggame.src} link={`/${locale}/cases/tggame`} />
+      </SwiperSlide>
+      <SwiperSlide>
         <WorkSlide path={college.src} link={`/${locale}/cases/college`} />
       </SwiperSlide>
       <SwiperSlide>
@@ -59,13 +63,14 @@ function desktop(locale) {
         <WorkSlide path={findproducts.src} link={`/${locale}/cases/findproducts`} />
       </SwiperSlide>
       <SwiperSlide>
-        <WorkSlide path={twopizza.src} link={`/${locale}/cases/twopizza`} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <WorkSlide path={crownclother.src} link={`/${locale}/cases/crownclothes`} />
-      </SwiperSlide>
-      <SwiperSlide>
         <WorkSlide path={elitestrike.src} link={`/${locale}/cases/elitestrike`} />
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <WorkSlide path={cardio.src} link={`/${locale}/cases/cardio`} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <WorkSlide path={coffee.src} link={`/${locale}/cases/coffee`} />
       </SwiperSlide>
     </Swiper>
   )
@@ -74,12 +79,13 @@ function desktop(locale) {
 function mobile(locale) {
   return (
     <>
+      <WorkSlide path={tggame.src} link={`/${locale}/cases/tggame`} />
       <WorkSlide path={college.src} link={`/${locale}/cases/college`} />
       <WorkSlide path={puma.src} link={`/${locale}/cases/puma`} />
       <WorkSlide path={findproducts.src} link={`/${locale}/cases/findproducts`} />
-      <WorkSlide path={twopizza.src} link={`/${locale}/cases/twopizza`} />
-      <WorkSlide path={crownclother.src} link={`/${locale}/cases/crownclothes`} />
       <WorkSlide path={elitestrike.src} link={`/${locale}/cases/elitestrike`} />
+      <WorkSlide path={cardio.src} link={`/${locale}/cases/cardio`} />
+      <WorkSlide path={coffee.src} link={`/${locale}/cases/coffee`} />
     </>
   )
 }

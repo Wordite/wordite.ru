@@ -55,7 +55,7 @@ const Socials = () => {
         </a>
       </div>
       <div className={style.iconContainer}>
-        <a href='https://t.me/mr_alberg' target='_blank'>
+        <a href='https://t.me/word1te' target='_blank'>
           <Telegram className={style.icon + ' ' + style.telegram} />
         </a>
       </div>
