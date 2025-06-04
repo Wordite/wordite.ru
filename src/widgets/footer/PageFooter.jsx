@@ -83,8 +83,8 @@ const PageFooter = () => {
           <nav className={style.links}>
             <SquareLink title={t('footer.github')} number='01' type='socials' icon='github' link='https://github.com/Wordite' />
             <SquareLink title={t('footer.vk')} number='02' type='socials' icon='vk' link='https://vk.com/l.o_oll' />
-            <SquareLink title={t('footer.email')} number='03' type='socials' icon='mail' link='mailto:wordite123@gmail.com' />
-            <SquareLink title={t('footer.telegram')} number='04' type='socials' icon='telegram' link='https://t.me/mr_alberg' />
+            <SquareLink title={t('footer.email')} number='03' type='socials' icon='mail' link='mailto:hello@wordite.ru' />
+            <SquareLink title={t('footer.telegram')} number='04' type='socials' icon='telegram' link='https://t.me/dannnyweb' />
           </nav>
         </div>
 
@@ -101,7 +101,7 @@ const PageFooter = () => {
           <img src={circle.src} className={style.image + ' ' + style.circle} alt={t('footer.circleAlt')} />
 
           <p className={`${style.mail} text`}>
-            <a href='mailto:wordite123@gmail.com'>wordite123@gmail.com</a>
+            <a href='mailto:hello@wordite.ru'>hello@wordite.ru</a>
           </p>
         </div>
       </div>

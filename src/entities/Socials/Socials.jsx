@@ -50,12 +50,12 @@ const Socials = () => {
         </a>
       </div>
       <div className={style.iconContainer}>
-        <a href='mailto:wordite123@gmail.com' target='_blank'>
+        <a href='mailto:hello@wordite.ru' target='_blank'>
           <Gmail className={style.icon + ' ' + style.gmail} />
         </a>
       </div>
       <div className={style.iconContainer}>
-        <a href='https://t.me/word1te' target='_blank'>
+        <a href='https://t.me/dannnyweb' target='_blank'>
           <Telegram className={style.icon + ' ' + style.telegram} />
         </a>
       </div>

@@ -122,12 +122,12 @@ const MobileMenu = () => {
           </a>
         </div>
         <div className={style.iconContainer}>
-          <a href='mailto:wordite123@gmail.com' target='_blank' rel='noopener noreferrer'>
+          <a href='mailto:hello@wordite.ru' target='_blank' rel='noopener noreferrer'>
             <Gmail className={style.icon + ' ' + style.gmail + ' ' + 'mobile_menu_social'} />
           </a>
         </div>
         <div className={style.iconContainer}>
-          <a href='https://t.me/word1te' target='_blank' rel='noopener noreferrer'>
+          <a href='https://t.me/dannnyweb' target='_blank' rel='noopener noreferrer'>
             <Telegram className={style.icon + ' ' + style.telegram + ' ' + 'mobile_menu_social'} />
           </a>
         </div>
